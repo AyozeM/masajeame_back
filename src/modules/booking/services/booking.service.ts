@@ -8,11 +8,13 @@ export class BookingService {
   constructor() {
     this.data = data;
   }
-  getAllServices(): DbSchema[] {
+  async getAllServices(): Promise<DbSchema[]> {
+    await new Promise(resolve => setTimeout(() => resolve(), 1500));
     return this.data;
   }
 
-  getServiceById(id: number): DbSchema {
+  async getServiceById(id: number): Promise<DbSchema> {
+    await new Promise(resolve => setTimeout(() => resolve(), 3000));
     return this.data.find(e => e.id === id);
   }
 }

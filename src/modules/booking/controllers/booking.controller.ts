@@ -4,15 +4,15 @@ import { BookingService } from '../services/booking.service';
 @Controller('booking')
 export class BookingController {
 
-  constructor(private readonly bookingService: BookingService) {}
+  constructor(private readonly bookingService: BookingService) { }
 
   @Get()
-  getServices() {
-    return this.bookingService.getAllServices();
+  async getServices() {
+    return await this.bookingService.getAllServices();
   }
 
   @Get('/:id')
-  getServiceById(@Param('id') id: number) {
-    return this.bookingService.getServiceById(+id);
+  async getServiceById(@Param('id') id: number) {
+    return await this.bookingService.getServiceById(+id);
   }
 }

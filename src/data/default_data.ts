@@ -1,4 +1,5 @@
 import { DbSchema } from 'src/models/DbSchema';
+import { addDay } from 'src/utils/Date.utils';
 
 export const data: DbSchema[] = [
   {
@@ -15,20 +16,25 @@ export const data: DbSchema[] = [
     ],
     availableHours: [
       {
-        start: '2020-03-13T10:00:00',
-        end: '2020-03-13T11:00:00',
-      },
-      {
-        start: '2020-03-13T14:00:00',
-        end: '2020-03-13T15:00:00',
-      },
-      {
-        start: '2020-03-13T16:00:00',
-        end: '2020-03-13T17:00:00',
-      },
-      {
-        start: '2020-03-13T18:00:00',
-        end: '2020-03-13T19:00:00',
+        date: new Date().toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '10:00',
+            end: '11:00',
+          },
+          {
+            start: '14:00',
+            end: '15:00',
+          },
+          {
+            start: '16:00',
+            end: '17:00',
+          },
+          {
+            start: '18:00',
+            end: '19:00',
+          },
+        ],
       },
     ],
   },
@@ -43,16 +49,100 @@ export const data: DbSchema[] = [
     ],
     availableHours: [
       {
-        start: '2020-03-13T11:00:00',
-        end: '2020-03-13T11:30:00',
+        date: addDay(new Date(), 1).toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '11:00',
+            end: '11:30',
+          },
+          {
+            start: '13:00',
+            end: '13:30',
+          },
+          {
+            start: '13:30',
+            end: '14:00',
+          },
+
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: '2h de spa en Hotel Villa cortés',
+    description: 'Disfruta de 2h de relax en el hotel Villa Cortés, Playa de las Américas',
+    price: 50,
+    img: [
+      'http://localhost:3000/villacortes1.jpg',
+      'http://localhost:3000/villacortes2.jpg',
+      'http://localhost:3000/villacortes3.jpg',
+      'http://localhost:3000/villacortes4.jpg',
+    ],
+    availableHours: [
+      {
+        date: addDay(new Date(), 1).toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '11:00',
+            end: '11:30',
+          },
+          {
+            start: '13:00',
+            end: '13:30',
+          },
+          {
+            start: '13:30',
+            end: '14:00',
+          },
+        ],
       },
       {
-        start: '2020-03-13T13:00:00',
-        end: '2020-03-13T13:30:00',
+        date: addDay(new Date(), 2).toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '10:00',
+            end: '11:30',
+          },
+          {
+            start: '13:00',
+            end: '13:30',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Cocholaterapia en hotel Gara',
+    description: 'Déjate mimar..., y llenarte de chocolate, en Arona',
+    price: 120,
+    img: [
+      'http://localhost:3000/gara2.jpg',
+      'http://localhost:3000/gara3.jpg',
+    ],
+    availableHours: [
+      {
+        date: new Date().toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '11:00',
+            end: '12:30',
+          },
+        ],
       },
       {
-        start: '2020-03-13T13:30:00',
-        end: '2020-03-13T14:00:00',
+        date: addDay(new Date(), 2).toISOString().split('T')[0],
+        ranges: [
+          {
+            start: '12:00',
+            end: '13:30',
+          },
+          {
+            start: '16:00',
+            end: '17:30',
+          },
+        ],
       },
     ],
   },
